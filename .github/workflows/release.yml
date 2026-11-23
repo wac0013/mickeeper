@@ -1,0 +1,46 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Testes e build
+        run: |
+          swift test
+          scripts/bundle.sh "${GITHUB_REF_NAME#v}"
+
+      - name: GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          gh release create "$GITHUB_REF_NAME" \
+            "build/MicKeeper-$VERSION.zip" "build/MicKeeper-$VERSION.zip.sha256" \
+            --title "MicKeeper $VERSION" --generate-notes
+
+      # Só roda se o secret TAP_TOKEN (PAT com escrita em wac0013/homebrew-tap) existir.
+      - name: Atualiza o cask no tap
+        env:
+          TAP_TOKEN: ${{ secrets.TAP_TOKEN }}
+        run: |
+          [ -n "$TAP_TOKEN" ] || { echo "TAP_TOKEN ausente: atualize o tap manualmente"; exit 0; }
+          VERSION="${GITHUB_REF_NAME#v}"
+          SHA="$(cut -d' ' -f1 "build/MicKeeper-$VERSION.zip.sha256")"
+          git clone "https://x-access-token:${TAP_TOKEN}@github.com/wac0013/homebrew-tap.git" tap
+          mkdir -p tap/Casks
+          scripts/cask.sh "$VERSION" "$SHA" > tap/Casks/mickeeper.rb
+          cd tap
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Casks/mickeeper.rb
+          git commit -m "mickeeper $VERSION"
+          git push
