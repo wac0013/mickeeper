@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-labelledby="t d">
+  <title id="t">MicKeeper</title>
+  <desc id="d">Microfone branco sobre fundo azul-turquesa com selo verde de proteção.</desc>
+  <defs>
+    <linearGradient id="bg" x1="150" y1="100" x2="880" y2="924" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#6366F1"/>
+      <stop offset="1" stop-color="#0891B2"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="100" x2="0" y2="560" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ok" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4ADE80"/>
+      <stop offset="1" stop-color="#16A34A"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity=".28"/>
+    </filter>
+  </defs>
+
+  <!-- Base (grade de ícones do macOS: 824 px com margem de 100) -->
+  <rect x="100" y="100" width="824" height="824" rx="186" fill="url(#bg)" filter="url(#shadow)"/>
+  <rect x="100" y="100" width="824" height="824" rx="186" fill="url(#gloss)"/>
+
+  <!-- Microfone -->
+  <g fill="none" stroke="#fff" stroke-width="38" stroke-linecap="round">
+    <path d="M356 470V500A156 156 0 0 0 668 500V470"/>
+    <path d="M512 656V736M448 736H576"/>
+  </g>
+  <rect x="428" y="238" width="168" height="316" rx="84" fill="#fff"/>
+  <g stroke="#0891B2" stroke-opacity=".35" stroke-width="14" stroke-linecap="round">
+    <path d="M458 326H566M458 380H566M458 434H566"/>
+  </g>
+
+  <!-- Selo de proteção -->
+  <circle cx="708" cy="708" r="118" fill="url(#ok)" stroke="#0E7490" stroke-width="22"/>
+  <path d="M654 710L694 750L766 668" fill="none" stroke="#fff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

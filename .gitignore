@@ -4,3 +4,5 @@ build/
 *.xcodeproj
 .DS_Store
 .ia/
+node_modules/
+package-lock.json
