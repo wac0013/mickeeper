@@ -10,6 +10,10 @@
 </p>
 
 <p align="center">
+  <a href="README.en.md">English</a> · <b>Português (BR)</b>
+</p>
+
+<p align="center">
   <a href="https://github.com/wac0013/mickeeper/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/wac0013/mickeeper/ci.yml?branch=main&label=CI&logo=githubactions&logoColor=white"></a>
   <a href="https://github.com/wac0013/mickeeper/actions/workflows/release.yml"><img alt="Release pipeline" src="https://img.shields.io/github/actions/workflow/status/wac0013/mickeeper/release.yml?label=release&logo=githubactions&logoColor=white"></a>
   <a href="https://github.com/wac0013/mickeeper/releases/latest"><img alt="Versão" src="https://img.shields.io/github/v/release/wac0013/mickeeper?label=vers%C3%A3o&logo=github&color=6366F1"></a>
