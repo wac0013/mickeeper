@@ -55,6 +55,8 @@ swift test              # política, config e textos (macOS)
 scripts/bundle.sh       # gera build/MicKeeper.app e o .zip
 ```
 
+Dev em Linux (build remoto no Mac via SSH restrito): veja [scripts/remote](scripts/remote). No Mac: `scripts/remote/mac-setup.sh "<chave pública>" "<IP do servidor>"`; no servidor: `scripts/remote/mac.sh test|bundle`.
+
 Release: `git tag vX.Y.Z && git push --tags` → o workflow testa, publica o `.zip` e atualiza o cask em [`wac0013/homebrew-tap`](https://github.com/wac0013/homebrew-tap) (requer o secret `TAP_TOKEN`).
 
 ## Licença
